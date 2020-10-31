@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'f$lzvqz9tz@go9m=y3ly849_1fvh@b!e8-kxlcbt-43jl3u&=p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['backendadityakhatwa.herokuapp.com','127.0.0.1']
 
 
 # Application definition
