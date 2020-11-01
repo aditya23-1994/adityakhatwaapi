@@ -15,7 +15,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 import django_heroku
-from decouple import config
+from decouple import config, Csv
 
 
 
@@ -24,7 +24,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = [config('PROD_HOST'),config('DEV_HOST')]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
 
 # Application definition
@@ -83,7 +83,7 @@ DATABASES = {
         'USER': config('USER'),
         'NAME': config('NAME'),
         'PASSWORD':config('PASSWORD'),
-        'HOST':config('HOST'),
+        'HOST':'localhost',
         'PORT': 5432,
         'TEST': {
             'NAME': 'mytestdatabase',
@@ -91,6 +91,9 @@ DATABASES = {
     },
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
