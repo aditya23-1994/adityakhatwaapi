@@ -15,17 +15,16 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 import django_heroku
+from decouple import config
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'f$lzvqz9tz@go9m=y3ly849_1fvh@b!e8-kxlcbt-43jl3u&=p'
+
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['backendadityakhatwa.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = [config('PROD_HOST'),config('DEV_HOST')]
 
 
 # Application definition
@@ -81,10 +80,10 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'postgres',
-        'NAME': 'resume',
-        'PASSWORD':'@ditya007',
-        'HOST':'localhost',
+        'USER': config('USER'),
+        'NAME': config('NAME'),
+        'PASSWORD':config('PASSWORD'),
+        'HOST':config('HOST'),
         'PORT': 5432,
         'TEST': {
             'NAME': 'mytestdatabase',

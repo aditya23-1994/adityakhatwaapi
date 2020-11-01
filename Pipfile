@@ -13,6 +13,8 @@ gunicorn = "*"
 whitenoise = "*"
 djangorestframework = "*"
 django-heroku = "*"
+django-cors-headers = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.8"
