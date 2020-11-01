@@ -19,12 +19,12 @@ from decouple import config
 
 
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('f$lzvqz9tz@go9m=y3ly849_1fvh@b!e8-kxlcbt-43jl3u&=p')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = [config('PROD_HOST'),config('DEV_HOST')]
+ALLOWED_HOSTS = ['backendadityakhatwa.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'USER': config('USER'),
-        'NAME': config('NAME'),
-        'PASSWORD':config('PASSWORD'),
-        'HOST':config('HOST'),
+        'USER': 'postgres',
+        'NAME': 'resume',
+        'PASSWORD':'@ditya007',
+        'HOST':'backendadityakhatwa.herokuapp.com',
         'PORT': 5432,
         'TEST': {
             'NAME': 'mytestdatabase',
