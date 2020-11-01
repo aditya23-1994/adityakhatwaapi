@@ -15,7 +15,6 @@ djangorestframework = "*"
 django-heroku = "*"
 django-cors-headers = "*"
 python-decouple = "*"
-djangorestframeworl = "*"
 
 [requires]
 python_version = "3.8"
